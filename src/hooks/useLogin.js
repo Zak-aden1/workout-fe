@@ -10,7 +10,7 @@ export const useLogin = () => {
   
   const login = (email, password) => {
     setIsLoading(true)
-    axios.post('api/user/login', {email, password})
+    axios.post('https://your-workouts.herokuapp.com/api/user/login', {email, password})
       .then(({data}) => {
         setError(null)
         setIsLoading(false)

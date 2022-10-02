@@ -14,7 +14,7 @@ const Home = () => {
   const { user } = useAuthContext();
 
   useEffect(() => {
-    axios.get('/api/workouts', { headers: {'Authorization' : `Bearer ${user?.token}`}})
+    axios.get('https://your-workouts.herokuapp.com/api/workouts', { headers: {'Authorization' : `Bearer ${user?.token}`}})
       .then(({data}) => {
         dispatch({type: 'SET_WORKOUTS', payload: data})
       })

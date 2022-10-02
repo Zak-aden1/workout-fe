@@ -23,7 +23,7 @@ const WorkoutForm = ({ workout, handleClose }) => {
     }
 
     if(workout) {
-      axios.patch(`/api/workouts/${workout.id}`, {...values}, { headers: {'Authorization' : `Bearer ${user?.token}`}})
+      axios.patch(`https://your-workouts.herokuapp.com/api/workouts/${workout.id}`, {...values}, { headers: {'Authorization' : `Bearer ${user?.token}`}})
         .then(data => {
           dispatch({type: 'UPDATE_WORKOUT', payload: values})
           setError(null)
@@ -35,7 +35,7 @@ const WorkoutForm = ({ workout, handleClose }) => {
           setEmptyFields(data.emptyFields)
         })
     } else {
-      axios.post('/api/workouts', {...values, type}, { headers: {'Authorization' : `Bearer ${user?.token}`}})
+      axios.post('https://your-workouts.herokuapp.com/api/workouts', {...values, type}, { headers: {'Authorization' : `Bearer ${user?.token}`}})
       .then(({data}) => {
         setError(null)
         setEmptyFields([])

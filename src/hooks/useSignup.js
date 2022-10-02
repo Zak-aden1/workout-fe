@@ -13,7 +13,7 @@ export const useSignup = () => {
     setIsLoading(true)
     console.log('signup', username);
 
-    axios.post('/api/user/signup', {email, password, username})
+    axios.post('https://your-workouts.herokuapp.com/api/user/signup', {email, password, username})
       .then(({data}) => {
         dispatch({type: 'LOGIN', payload: data})
         setIsLoading(false)

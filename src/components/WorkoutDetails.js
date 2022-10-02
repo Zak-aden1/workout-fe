@@ -19,7 +19,7 @@ const WorkoutDetails = ({ workout }) => {
       return alert('You need to be logged in mate')
     }
 
-    axios.delete(`/api/workouts/${workout._id}`, { headers: {'Authorization' : `Bearer ${user?.token}`}})
+    axios.delete(`https://your-workouts.herokuapp.com/api/workouts/${workout._id}`, { headers: {'Authorization' : `Bearer ${user?.token}`}})
       .then(({data}) => {
         console.log('deleted', data);
         dispatch({type: 'DELETE_WORKOUT', payload: data })
